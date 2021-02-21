@@ -1,0 +1,39 @@
+[{
+        "id": 1,
+        "name": "3A for 130",
+        "description": "Buy 3 As for 130.",
+        "type": "VOLUME",
+        "relSku": [{
+            "id": "A",
+            "quantity": 3
+        }],
+        "amountOff": 20
+    },
+    {
+        "id": 2,
+        "name": "2B for 45",
+        "description": "Buy 2 Bs for 45.",
+        "type": "VOLUME",
+        "relSku": [{
+            "id": "B",
+            "quantity": 2
+        }],
+        "amountOff": 20
+    },
+    {
+        "id": 3,
+        "name": "C & D for 30",
+        "description": "Buy C & D for 30.",
+        "type": "BUNDLE",
+        "relSku": [{
+                "id": "C",
+                "quantity": 1
+            },
+            {
+                "id": "D",
+                "quantity": 1
+            }
+        ],
+        "amountOff": 5
+    }
+]
