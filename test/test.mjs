@@ -5,6 +5,10 @@ import {
     readFileSync
 } from 'fs';
 
+import {
+	process
+} from '../src/services/engine.mjs'
+
 
 const filePromotions = readFileSync('./src/config/promotions.json');
 const promotions = JSON.parse(filePromotions);
