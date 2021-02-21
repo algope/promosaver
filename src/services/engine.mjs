@@ -7,6 +7,11 @@ function process(promotions, basket) {
             //Volume discount
             case "VOLUME":
                 let volumeOccurences = countOccurrences(basket, promo.relSku, 0)
+                if (volumeOccurences > 0) {
+                    console.log("Processing volume disccount")
+                    //Accumulate the discount to substract based on how many times the promo can be applied
+                    totalVolumeDiscount = totalVolumeDiscount + (promo.amountOff * volumeOccurences);
+                }
                 break;
                 //Bundle discount
             case "BUNDLE":
@@ -17,14 +22,26 @@ function process(promotions, basket) {
         }
     }
 
-    return null;
+    console.log("Total volume discount value: " + totalVolumeDiscount)
+    console.log("Total bundle discount value: " + totalBundleDiscount)
+    //Apply always the most beneficial promotion for the customer, but only one.
+    return Math.max(totalVolumeDiscount, totalBundleDiscount);
 }
 
-
+//Finds the ammount of times a given promotion pattern appears in the basket
 function countOccurrences(basket, toFindItems, count) {
-    //TODO Find the ammount of times a given promotion appears in the basket
-
-    return null;
+    if (toFindItems.every(i => basket.includes(i))) {
+        for (const item of toFindItems) {
+            let index = basket.indexOf(item);
+            if (index > -1) {
+                //Remove from the array and continue
+                basket.splice(index, 1);
+            } else return count;
+        }
+        count++;
+        //Recursively keep finding matches
+        return countOccurrences(basket, toFindItems, count)
+    } else return count;
 }
 
 export {

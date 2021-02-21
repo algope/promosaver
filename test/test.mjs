@@ -16,21 +16,21 @@ const promotions = JSON.parse(filePromotions);
 
 describe("Correct promotion calculation test", () => {
 
-    it("should return 100 for scenario A", () => {
+    it("should return 0 for scenario A", () => {
         let basket = ["A", "B", "C"];
         let result = process(promotions, basket)
-        expect(result).to.equal(100)
+        expect(result).to.equal(0)
     })
 
-    it("should return 370 for scenario B", () => {
+    it("should return 50 for scenario B", () => {
         let basket = ["A", "A", "A", "A", "A", "B", "B", "B", "B", "B", "C"]
         let result = process(promotions, basket)
-        expect(result).to.equal(370)
+        expect(result).to.equal(50)
     })
 
-    it("should return 280 for scenario C", () => {
+    it("should return 50 for scenario C", () => {
         let basket = ["A", "A", "A", "B", "B", "B", "B", "B", "C", "D"]
         let result = process(promotions, basket)
-        expect(result).to.equal(280)
+        expect(result).to.equal(50)
     })
 })

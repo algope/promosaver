@@ -22,3 +22,9 @@ console.log("  Currently active promotions: ")
 for (const promo of promos) {
     console.log("   -" + promo.description)
 }
+
+let applicablePromotion = process(promos, scenarioC);
+let priceWithPromotion = subtotalC - applicablePromotion;
+
+console.log("The applicable promotion is " + applicablePromotion)
+console.log("BASKET TOTAL AFTER PROMOTION:-> " + priceWithPromotion)
