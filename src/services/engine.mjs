@@ -15,6 +15,11 @@ function process(promotions, basket) {
                 break;
                 //Bundle discount
             case "BUNDLE":
+                let bundleOccurences = countOccurrences(basket, promo.relSku, 0)
+                if (bundleOccurences > 0) {
+                    console.log("Processing bundle disccount")
+                    totalBundleDiscount = totalBundleDiscount + (promo.amountOff * bundleOccurences);
+                }
                 break;
 
             case "PERCENTAGE":
