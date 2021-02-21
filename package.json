@@ -1,0 +1,19 @@
+{
+  "name": "promosaver",
+  "version": "0.0.1",
+  "description": "A simple promotion engine in NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/algope/promosaver.git"
+  },
+  "author": "Alejandro González Pérez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/algope/promosaver/issues"
+  },
+  "homepage": "https://github.com/algope/promosaver#readme"
+}
