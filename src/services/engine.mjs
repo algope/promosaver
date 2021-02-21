@@ -1,5 +1,4 @@
 function process(promotions, basket, basketSubtotal) {
-    //TODO: Iterate over promotions and match items in basket
     let totalVolumeDiscount = 0;
     let totalBundleDiscount = 0;
     for (const promo of promotions) {
