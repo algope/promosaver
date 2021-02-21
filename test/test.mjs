@@ -6,7 +6,7 @@ import {
 } from 'fs';
 
 import {
-	process
+    process
 } from '../src/services/engine.mjs'
 
 
@@ -32,5 +32,11 @@ describe("Correct promotion calculation test", () => {
         let basket = ["A", "A", "A", "B", "B", "B", "B", "B", "C", "D"]
         let result = process(promotions, basket)
         expect(result).to.equal(50)
+    })
+
+    it("should return 10 for scenario D", () => {
+        let basket = ["C", "D", "D", "C", "A"]
+        let result = process(promotions, basket)
+        expect(result).to.equal(10)
     })
 })
