@@ -17,14 +17,15 @@ let subtotalB = 420
 let scenarioC = ["A", "A", "A", "B", "B", "B", "B", "B", "C", "D"]
 let subtotalC = 335
 
+let scenarioD = ["C", "D", "D", "C", "A"]
+let subtotalD = 120
+
 console.log(">Welcome to the promotion engine.")
 console.log("  Currently active promotions: ")
 for (const promo of promos) {
     console.log("   -" + promo.description)
 }
 
-let applicablePromotion = process(promos, scenarioC);
-let priceWithPromotion = subtotalC - applicablePromotion;
+let basketTotal = process(promos, scenarioD, subtotalD);
 
-console.log("The applicable promotion is " + applicablePromotion)
-console.log("BASKET TOTAL AFTER PROMOTION:-> " + priceWithPromotion)
+console.log("BASKET TOTAL AFTER PROMOTION:-> " + basketTotal)

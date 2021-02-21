@@ -1,4 +1,4 @@
-function process(promotions, basket) {
+function process(promotions, basket, basketSubtotal) {
     //TODO: Iterate over promotions and match items in basket
     let totalVolumeDiscount = 0;
     let totalBundleDiscount = 0;
@@ -27,10 +27,13 @@ function process(promotions, basket) {
         }
     }
 
+    let subtotalAfterVolumePromo = basketSubtotal - totalVolumeDiscount;
+    let subtotalAfterBundlePromo = basketSubtotal - totalBundleDiscount;
+
     console.log("Total volume discount value: " + totalVolumeDiscount)
     console.log("Total bundle discount value: " + totalBundleDiscount)
     //Apply always the most beneficial promotion for the customer, but only one.
-    return Math.max(totalVolumeDiscount, totalBundleDiscount);
+    return Math.min(subtotalAfterVolumePromo, subtotalAfterBundlePromo);
 }
 
 //Finds the ammount of times a given promotion pattern appears in the basket
