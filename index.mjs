@@ -1,31 +1,33 @@
 import {
     readFileSync
 } from 'fs';
+
+import express from 'express';
+
 import {
     process
 } from './src/services/engine.mjs'
 
-let filePromos = readFileSync('./src/config/promotions.json');
-let promos = JSON.parse(filePromos);
+const app = express();
+ 
+const filePromos = readFileSync('./src/config/promotions.json');
+const promos = JSON.parse(filePromos);
 
-let scenarioA = ["A", "B", "C"];
-let subtotalA = 100;
 
-let scenarioB = ["A", "A", "A", "A", "A", "B", "B", "B", "B", "B", "C"]
-let subtotalB = 420
 
-let scenarioC = ["A", "A", "A", "B", "B", "B", "B", "B", "C", "D"]
-let subtotalC = 335
 
-let scenarioD = ["C", "D", "D", "C", "A"]
-let subtotalD = 120
+// console.log(">Welcome to the promotion engine.")
+// console.log("  Currently active promotions: ")
+// for (const promo of promos) {
+//     console.log("   -" + promo.description)
+// }
 
-console.log(">Welcome to the promotion engine.")
-console.log("  Currently active promotions: ")
-for (const promo of promos) {
-    console.log("   -" + promo.description)
-}
+// let basketTotal = process(promos, scenarioD, subtotalD);
 
-let basketTotal = process(promos, scenarioD, subtotalD);
+// console.log("BASKET TOTAL AFTER PROMOTION:-> " + basketTotal)
 
-console.log("BASKET TOTAL AFTER PROMOTION:-> " + basketTotal)
+app.listen(3000, () =>
+
+  console.log('App listening on port 3000'),
+  
+);
