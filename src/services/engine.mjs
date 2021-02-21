@@ -30,8 +30,6 @@ function process(promotions, basket, basketSubtotal) {
     let subtotalAfterVolumePromo = basketSubtotal - totalVolumeDiscount;
     let subtotalAfterBundlePromo = basketSubtotal - totalBundleDiscount;
 
-    console.log("Total volume discount value: " + totalVolumeDiscount)
-    console.log("Total bundle discount value: " + totalBundleDiscount)
     //Apply always the most beneficial promotion for the customer, but only one.
     return Math.min(subtotalAfterVolumePromo, subtotalAfterBundlePromo);
 }

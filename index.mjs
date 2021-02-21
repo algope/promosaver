@@ -4,30 +4,34 @@ import {
 
 import express from 'express';
 
+import bodyParser from "body-parser";
+
 import {
     process
 } from './src/services/engine.mjs'
 
 const app = express();
- 
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
+
 const filePromos = readFileSync('./src/config/promotions.json');
 const promos = JSON.parse(filePromos);
 
+app.post('/qualifyForPromotions', function (req, res) {
+    const basket = req.body.basket;
+    const basketSubtotal = req.body.subtotal;
+    let basketTotal = process(promos, basket, basketSubtotal);
 
+    return res.send({
+        "totalAfterPromotions": basketTotal
+    });
+});
 
-
-// console.log(">Welcome to the promotion engine.")
-// console.log("  Currently active promotions: ")
-// for (const promo of promos) {
-//     console.log("   -" + promo.description)
-// }
-
-// let basketTotal = process(promos, scenarioD, subtotalD);
-
-// console.log("BASKET TOTAL AFTER PROMOTION:-> " + basketTotal)
 
 app.listen(3000, () =>
 
-  console.log('App listening on port 3000'),
-  
+    console.log('App listening on port 3000'),
+
 );
