@@ -44,3 +44,18 @@ describe("Correct promotion calculation test", () => {
         expect(result).to.equal(110)
     })
 })
+
+// describe("API POST test /qualifyForPromotions", () => {
+
+// 	it("should return 200", async () => {
+//     	let res = await request(app)
+//         	.post('/qualifyForPromotions')
+//         	.send({
+//                 "basket": ["A", "A", "A", "A", "A", "B", "B", "B", "B", "B", "C"],
+//                 "subtotal": 420
+//             })
+
+//     	expect(res.status).to.equal(200)
+
+// 	})
+// })
